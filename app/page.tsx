@@ -46,6 +46,8 @@ const categoryMeta: Record<Category, { label: string; color: string; icon: strin
 
 const places: Place[] = [
   { id: 'hotel', name: '호텔 그레이스리 타이페이', zh: '格拉斯麗台北飯店', category: 'hotel', lat: 25.0431061, lng: 121.5306983, note: '중샤오신성역 인근 · 체크인 15:00 / 체크아웃 12:00', score: 100, reason: '여행 기준점' },
+  { id: 'pindo-banqiao', name: '품도 꼬치구이 반차오', zh: '品都串燒攤 板橋', category: 'street', lat: 25.0078694, lng: 121.4637212, note: '푸중역 인근 · 매일 17:30—00:00 · 현장 대기 가능', score: 88, reason: '신규 최우선 + 공연 후 반차오 동선', status: '17:30 오픈 · 현장 대기' },
+  { id: 'latelier-luter', name: '라뜰리에 루터스', zh: '甜滿', category: 'dessert', lat: 25.0313393, lng: 121.5299031, note: '융캉공원 앞 · 누가크래커 · 매일 09:00—20:30', score: 93, reason: '신규 최우선 + 융캉제 군집·선물', status: '현금 준비 · 재고 소진 가능' },
   { id: 'fuzhou', name: 'Fuzhou Ancestral Pepper Cake', zh: '福州世祖胡椒餅', category: 'street', lat: 25.0461036, lng: 121.5133637, note: '미슐랭 빕구르망 · 겉바속촉 후추빵', score: 92, reason: '강한 메모 + A1 이동 동선' },
   { id: 'baishui', name: 'Bai-Shui Tofu Pudding', zh: '白水豆花', category: 'dessert', lat: 25.0300494, lng: 121.5294681, note: '부드러운 두부화 · 타로볼과 고구마볼', score: 83, reason: '융캉제 군집 + 고유 디저트' },
   { id: 'smoothie', name: '스무시 하우스 본관', zh: '思慕昔本館', category: 'dessert', lat: 25.032234, lng: 121.529623, note: '망고빙수 · 더운 시간대 휴식', score: 78, reason: '융캉제 군집 + 계절 적합' },
@@ -73,6 +75,8 @@ const planLabels: Record<PlanId, { title: string; short: string; color: string }
 const taxiCards = [
   { id: 'taxi-hotel', label: '숙소', name: '格拉斯麗台北飯店', address: '台北市中正區忠孝東路二段89號', map: 'https://maps.app.goo.gl/o4FxVhyJnfTRpeXFA' },
   { id: 'taxi-arena', label: '공연장', name: '國立體育大學綜合體育館', address: '桃園市龜山區文化一路250號', map: 'https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E9%AB%94%E8%82%B2%E5%A4%A7%E5%AD%B8%E7%B6%9C%E5%90%88%E9%AB%94%E8%82%B2%E9%A4%A8' },
+  { id: 'taxi-pindo', label: '반차오 꼬치집', name: '品都串燒攤 板橋', address: '新北市板橋區館前東路63-1號', map: 'https://www.google.com/maps/search/?api=1&query=%E5%93%81%E9%83%BD%E4%B8%B2%E7%87%92%E6%94%A4+%E6%9D%BF%E6%A9%8B' },
+  { id: 'taxi-luter', label: '누가크래커', name: '甜滿 L’Atelier Lotus', address: '台北市大安區永康街31巷10號', map: 'https://www.google.com/maps/search/?api=1&query=%E7%94%9C%E6%BB%BF+L%27Atelier+Lotus' },
   { id: 'taxi-a1', label: '공항 MRT A1', name: '桃園機場捷運 A1 台北車站', address: '台北市大同區鄭州路8號', map: 'https://www.google.com/maps/search/?api=1&query=%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E6%8D%B7%E9%81%8B+A1+%E5%8F%B0%E5%8C%97%E8%BB%8A%E7%AB%99' },
   { id: 'taxi-t1', label: '출국 터미널', name: '桃園國際機場 第一航廈', address: '桃園市大園區航站南路15號', map: 'https://www.google.com/maps/search/?api=1&query=%E6%A1%83%E5%9C%92%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4+%E7%AC%AC%E4%B8%80%E8%88%AA%E5%BB%88' },
 ];
@@ -83,6 +87,9 @@ const milestones = [
   { at: '2026-09-05T11:30:00+08:00', day: 'd2', label: '공연장으로 출발', detail: 'A1 → A7 일반열차 · 출발 전 시간표 확인' },
   { at: '2026-09-05T13:00:00+08:00', day: 'd2', label: '공연장 도착 목표', detail: '14:00 공연 · 여유 있게 입장' },
   { at: '2026-09-05T14:00:00+08:00', day: 'd2', label: '공연 시작', detail: '14:00—17:00 · National Taiwan Sport University Arena' },
+  { at: '2026-09-05T17:20:00+08:00', day: 'd2', label: '반차오로 출발', detail: 'A7 → A3 → 순환선 · 18:30 꼬치집 도착 목표' },
+  { at: '2026-09-05T18:30:00+08:00', day: 'd2', label: '반차오 꼬치 저녁', detail: '品都串燒攤 板橋 · 현장 대기 가능' },
+  { at: '2026-09-06T08:40:00+08:00', day: 'd3', label: '라뜰리에로 출발', detail: '09:00 누가크래커 구매 · 현금 준비' },
   { at: '2026-09-06T11:40:00+08:00', day: 'd3', label: '호텔에서 공항으로 출발', detail: '택시 → A1 → 공항 MRT' },
   { at: '2026-09-06T13:30:00+08:00', day: 'd3', label: '터미널 1 도착 마감', detail: 'IT606 · 16:40 TPE 출발' },
   { at: '2026-09-06T16:40:00+08:00', day: 'd3', label: '부산행 출발', detail: 'IT606 · 19:55 PUS 도착' },
@@ -90,8 +97,8 @@ const milestones = [
 
 const rainAlternatives: Record<string, string> = {
   d1: '신이 거리 산책은 101 전망대·쇼핑몰로 바꾸고, 야시장은 강수 상황을 보고 짧게 방문해요.',
-  d2: '공연 이동 시간을 20분 앞당기고, 공연 후에는 스린 야시장 대신 융캉제 실내 식당·디저트로 전환해요.',
-  d3: '호텔 가까운 딘타이펑 신셩점이나 중샤오신성역 실내 코스로 좁혀 공항 이동 여유를 지켜요.',
+  d2: '공연 이동을 20분 앞당기고, 반차오역에서는 택시를 이용해 환승·도보 시간을 줄여요. 폭우면 꼬치를 포장해 호텔로 돌아가요.',
+  d3: '호텔에서 라뜰리에까지 택시로 이동해 누가크래커를 먼저 사고, 이후 코스는 딘타이펑 신셩점 등 실내 한 곳으로 좁혀요.',
 };
 
 const expenseMeta: Record<ExpenseCategory, string> = { food: '식비', taxi: '택시', transit: '열차·대중교통', etc: '기타' };
@@ -99,29 +106,32 @@ const expenseMeta: Record<ExpenseCategory, string> = { food: '식비', taxi: '�
 const days = [
   {
     key: 'd1', date: '9월 4일 금요일', label: 'DAY 01 · ARRIVAL', title: '타이베이 동부에서 시작',
+    requiredPlaceIds: [],
     common: ['10:50 부산(PUS) 출발', '12:35 타오위안(TPE) 도착', '공항 MRT → A1 타이베이역', '15:30 호텔 체크인'],
     plans: {
       A: { title: '101과 대표 한 끼', summary: '딘타이펑 101점 → 신이 야경 → 라오허제 야시장', time: '16:30—22:00', placeIds: ['dtf101', 'raohe'], food: 950, taxi: 420, transit: 160 },
       B: { title: '융캉제 로컬 푸드', summary: '융캉우육면 → 천진총좌빙 → 융캉제 → 라오허제', time: '16:30—22:00', placeIds: ['yongkang', 'tianjin', 'raohe'], food: 680, taxi: 390, transit: 160 },
-      C: { title: '망고와 두부화', summary: '천진총좌빙 → 스무시 하우스 → Bai-Shui → 야경', time: '16:30—21:30', placeIds: ['tianjin', 'smoothie', 'baishui'], food: 600, taxi: 380, transit: 160 },
+      C: { title: '망고와 두부화', summary: '스무시 하우스 → Bai-Shui → 101 야경', time: '16:30—21:30', placeIds: ['smoothie', 'baishui'], food: 600, taxi: 380, transit: 160 },
     },
   },
   {
     key: 'd2', date: '9월 5일 토요일', label: 'DAY 02 · SHOW DAY', title: '14시 공연을 중심으로',
-    common: ['11:30 A1 타이베이역 출발', '공항 MRT 일반열차 → A7', '13:00 공연장 도착', '14:00—17:00 공연'],
+    requiredPlaceIds: ['pindo-banqiao'],
+    common: ['11:30 A1 타이베이역 출발', '공항 MRT 일반열차 → A7', '13:00 공연장 도착', '14:00—17:00 공연', '17:20 A7 → A3 순환선 → 반차오', '18:30 品都 꼬치 저녁', '푸중역 → 중샤오신성역'],
     plans: {
-      A: { title: '후추빵과 딘타이펑', summary: '11:00 후추빵 → 공연 → 딘타이펑 신셩점', time: '10:40—20:30', placeIds: ['fuzhou', 'arena', 'dtfxinsheng'], food: 850, taxi: 360, transit: 140 },
-      B: { title: '시먼딩부터 스린까지', summary: '아종면선 → 天天利/J&G → 공연 → 스린 야시장', time: '08:30—21:30', placeIds: ['aychung', 'tiantian', 'jg', 'arena', 'shilin'], food: 720, taxi: 420, transit: 140 },
-      C: { title: '흑당과 융캉 디저트', summary: 'Xing Fu Tang → 시먼딩 → 공연 → 융캉제 디저트', time: '08:30—20:30', placeIds: ['xingfu', 'arena', 'baishui'], food: 600, taxi: 380, transit: 140 },
+      A: { title: '후추빵과 반차오 야식', summary: '10:40 후추빵 → 공연 → 18:30 品都 꼬치', time: '10:40—20:30', placeIds: ['fuzhou', 'arena'], food: 550, taxi: 180, transit: 220 },
+      B: { title: '시먼딩과 반차오 꼬치', summary: '09:00 아종면선 → 시먼딩 → 공연 → 18:30 品都 꼬치', time: '09:00—20:30', placeIds: ['aychung', 'arena'], food: 600, taxi: 180, transit: 220 },
+      C: { title: '흑당과 반차오 야식', summary: '10:00 Xing Fu Tang → 공연 → 18:30 品都 꼬치', time: '10:00—20:30', placeIds: ['xingfu', 'arena'], food: 500, taxi: 180, transit: 220 },
     },
   },
   {
     key: 'd3', date: '9월 6일 일요일', label: 'DAY 03 · DEPARTURE', title: '마지막 한 끼와 귀국',
-    common: ['11:40까지 호텔 출발', '택시 → A1 타이베이역', '공항 MRT → 터미널 1', '13:30 공항 · 16:40 출발'],
+    requiredPlaceIds: ['latelier-luter'],
+    common: ['08:40 호텔 출발', '09:00 라뜰리에 루터스', '11:40 호텔에서 공항 출발', '택시 → A1 → 공항 MRT', '13:30 터미널 1 도착'],
     plans: {
-      A: { title: '신셩점 오픈런', summary: '10:00 딘타이펑 신셩점 → 호텔 짐 수령 → 공항', time: '09:45—13:30', placeIds: ['dtfxinsheng'], food: 620, taxi: 130, transit: 160 },
-      B: { title: '놓친 시먼딩 한 곳', summary: '아종면선 등 미방문 음식 1곳 → 호텔 → 공항', time: '08:30—13:30', placeIds: ['aychung'], food: 320, taxi: 230, transit: 160 },
-      C: { title: '마지막 망고빙수', summary: '10:00 스무시 하우스 → 호텔 짐 수령 → 공항', time: '09:45—13:30', placeIds: ['smoothie'], food: 260, taxi: 160, transit: 160 },
+      A: { title: '누가크래커와 신셩점', summary: '라뜰리에 → 10:00 딘타이펑 신셩점 → 호텔 → 공항', time: '08:40—13:30', placeIds: ['dtfxinsheng'], food: 840, taxi: 180, transit: 160 },
+      B: { title: '누가크래커와 총좌빙', summary: '라뜰리에 → 천진총좌빙 → 호텔 → 공항', time: '08:40—13:30', placeIds: ['tianjin'], food: 500, taxi: 180, transit: 160 },
+      C: { title: '누가크래커와 망고빙수', summary: '라뜰리에 → 스무시 하우스 → 호텔 → 공항', time: '08:40—13:30', placeIds: ['smoothie'], food: 480, taxi: 180, transit: 160 },
     },
   },
 ] as const;
@@ -358,7 +368,8 @@ export default function Home() {
     return () => { cancelled = true; };
   }, []);
 
-  const selectedPlaceIds = useMemo<string[]>(() => days.flatMap((day) => [...day.plans[plans[day.key]].placeIds]), [plans]);
+  const savedPlaceCount = places.filter((place) => place.category !== 'hotel').length;
+  const selectedPlaceIds = useMemo<string[]>(() => days.flatMap((day) => [...day.requiredPlaceIds, ...day.plans[plans[day.key]].placeIds]), [plans]);
   const duplicateIds = useMemo(() => selectedPlaceIds.filter((id, index, all) => all.indexOf(id) !== index), [selectedPlaceIds]);
   const selectedEstimate = useMemo(() => {
     const dayCosts = days.map((day) => day.plans[plans[day.key]]);
@@ -488,7 +499,9 @@ export default function Home() {
             <div className="day-list">
               {days.map((day, dayIndex) => {
                 const selected = day.plans[plans[day.key]];
-                const hasDuplicate = selected.placeIds.some((id) => duplicateIds.includes(id));
+                const requiredPlaceIds = day.requiredPlaceIds as readonly string[];
+                const dayPlaceIds: string[] = [...requiredPlaceIds, ...selected.placeIds];
+                const hasDuplicate = dayPlaceIds.some((id) => duplicateIds.includes(id));
                 return (
                   <article className="itinerary-card" key={day.key}>
                     <div className="date-rail"><span>{String(dayIndex + 1).padStart(2, '0')}</span><b>{day.date}</b><i /></div>
@@ -499,7 +512,7 @@ export default function Home() {
                         {(Object.keys(planLabels) as PlanId[]).map((id) => <button key={id} className={plans[day.key] === id ? 'selected' : ''} style={{ '--plan-color': planLabels[id].color } as React.CSSProperties} onClick={() => updatePlan(day.key, id)}><b>{id}</b>{planLabels[id].title}</button>)}
                       </div>
                       <div className="selected-plan"><div className="plan-letter" style={{ background: planLabels[plans[day.key]].color }}>{plans[day.key]}</div><div><h4>{selected.title}</h4><p>{selected.summary}</p></div></div>
-                      <div className="stop-chips">{selected.placeIds.map((id) => { const place = places.find((item) => item.id === id)!; return <button key={id} className={visitedIds.includes(id) ? 'visited' : ''} onClick={() => { setActiveSpot(id); document.getElementById('trip-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{place.name}{visitedIds.includes(id) && <small>완료</small>}{!visitedIds.includes(id) && duplicateIds.includes(id) && <small>중복</small>}</button>; })}</div>
+                      <div className="stop-chips">{dayPlaceIds.map((id) => { const place = places.find((item) => item.id === id)!; const required = requiredPlaceIds.includes(id); return <button key={id} className={visitedIds.includes(id) ? 'visited' : ''} onClick={() => { setActiveSpot(id); document.getElementById('trip-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{place.name}{required && <small>필수</small>}{visitedIds.includes(id) && <small>완료</small>}{!required && !visitedIds.includes(id) && duplicateIds.includes(id) && <small>중복</small>}</button>; })}</div>
                       {hasDuplicate && <p className="duplicate-note">같은 장소가 다른 날에도 있어요. 현지에서 한 번만 방문하고 남는 시간은 지도 후보로 바꿔보세요.</p>}
                     </div>
                   </article>
@@ -509,7 +522,7 @@ export default function Home() {
           </section>
 
           <section className="map-section" id="trip-map" aria-labelledby="map-title">
-            <div className="section-heading compact"><div><p className="eyebrow">SAVED PLACES · 16</p><h2 id="map-title">우리만의 타이베이 지도</h2></div><p className="section-copy">컬러 핀은 현재 일정에 포함된 장소예요.<br />회색 핀도 후보로 언제든 확인할 수 있어요.</p></div>
+            <div className="section-heading compact"><div><p className="eyebrow">SAVED PLACES · {savedPlaceCount}</p><h2 id="map-title">우리만의 타이베이 지도</h2></div><p className="section-copy">저장 장소 {savedPlaceCount}곳과 숙소를 함께 표시해요.<br />컬러 핀은 현재 일정, 회색 핀은 선택 후보예요.</p></div>
             <div className="filter-row">
               <button className={category === 'all' ? 'active' : ''} onClick={() => setCategory('all')}>전체</button>
               {(Object.keys(categoryMeta) as Category[]).filter((item) => item !== 'hotel').map((item) => <button className={category === item ? 'active' : ''} key={item} onClick={() => setCategory(item)}><i style={{ background: categoryMeta[item].color }} />{categoryMeta[item].label}</button>)}

@@ -8,11 +8,11 @@ const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: '삥과 가는 대만여행',
-  description: '2026년 9월 4일부터 6일까지, 타이베이 2박 3일 여행 일정과 저장 장소 지도',
+  description: '2026년 9월 4일부터 6일까지, 비행기와 숙소 시간만 정해 둔 타이베이 자유여행 지도',
   keywords: ['타이베이 여행', '대만 여행 일정', '타이베이 맛집', '타이베이 핫플'],
   openGraph: {
     title: '삥과 가는 대만여행',
-    description: 'TAIPEI · 2026.09.04—06 · 일정, 지도, 예산을 한눈에',
+    description: 'TAIPEI · 2026.09.04—06 · 저장 장소에서 그날 갈 곳을 고르는 자유여행',
     type: 'website',
     locale: 'ko_KR',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: '삥과 가는 대만여행' }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '삥과 가는 대만여행',
-    description: 'TAIPEI · 2026.09.04—06 · 일정, 지도, 예산을 한눈에',
+    description: 'TAIPEI · 2026.09.04—06 · 저장 장소에서 그날 갈 곳을 고르는 자유여행',
     images: ['/og.png'],
   },
 };

@@ -220,3 +220,85 @@ h2 { margin:0; font-size:clamp(36px,5vw,58px); line-height:1.03; letter-spacing:
   .choice-detail .place-actions button,.choice-detail .place-actions a { width:100%; padding:11px; text-align:center; }
   .simple-stay { margin-top:66px!important; }
 }
+
+/* Date-linked itinerary, shopping tab, and restored social picks */
+.shopping-mode .hero { background:#4f5c3d; }
+.day-picked-list { margin:4px 0 16px; padding-top:14px; border-top:1px dashed #d7c9b5; }
+.day-picked-list>span { display:block; margin-bottom:8px; color:var(--jade); font-size:9px; font-weight:900; letter-spacing:.1em; }
+.day-picked-list>p { margin:0; padding:9px 0; color:#8b958f; font-size:10px; }
+.day-picked-list>div { display:grid; grid-template-columns:minmax(0,1fr) 28px; align-items:center; gap:5px; margin-top:6px; border-radius:9px; background:#f0e6d7; }
+.day-place-focus { min-width:0; padding:9px 5px 9px 9px; display:flex; align-items:center; gap:8px; border:0; background:transparent; color:var(--ink); text-align:left; font-size:10px; font-weight:800; cursor:pointer; }
+.day-place-focus i { width:7px; height:7px; flex:none; border-radius:50%; }
+.day-place-remove { width:24px; height:24px; border:0; border-radius:50%; background:#dfd1bf; color:#8a5d4b; font-size:15px; cursor:pointer; }
+.itinerary-summary .summary-days { display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+.summary-days>div { min-width:70px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px; border:1px solid #ffffff2c; border-radius:10px; background:#ffffff10; }
+.summary-days span { color:#d9dfdb; font-size:8px; font-weight:900; }
+.summary-days b { color:#ffc872; font:700 19px Georgia,serif; }
+.schedule-choice-layout { grid-template-columns:minmax(0,1fr) 390px; }
+.schedule-place-panel { max-height:620px; }
+.place-schedule-row { border-bottom:1px solid #e1d6c5; background:#fff9ed; }
+.place-schedule-row.active { background:#eee3d3; }
+.place-schedule-row.picked { box-shadow:inset 4px 0 var(--jade); }
+.place-focus { width:100%; padding:14px 14px 10px; display:grid; grid-template-columns:36px minmax(0,1fr); align-items:start; gap:10px; border:0; background:transparent; color:var(--ink); text-align:left; cursor:pointer; }
+.place-focus>span:last-child { min-width:0; }
+.place-focus b,.place-focus small,.place-focus em,.place-focus mark { display:block; }
+.place-focus b { font-size:11px; }
+.place-focus small { margin-top:3px; color:#909994; font-size:8px; }
+.place-focus em { margin-top:7px; color:#6c7872; font-size:9px; font-style:normal; line-height:1.45; }
+.place-focus mark { width:max-content; max-width:100%; margin-top:7px; padding:4px 6px; border-radius:5px; background:#f7dfc1; color:#a6573f; font-size:8px; }
+.row-day-buttons { padding:0 14px 13px 60px; display:flex; flex-wrap:wrap; gap:5px; }
+.row-day-buttons button { padding:6px 8px; border:1px solid #d9cdbb; border-radius:7px; background:#fffaf1; color:#6a766f; font-size:8px; font-weight:900; cursor:pointer; }
+.row-day-buttons button.selected { border-color:var(--jade); background:var(--jade); color:white; }
+.row-day-buttons .remove-pick { margin-left:auto; border-color:transparent; background:transparent; color:#b55845; text-decoration:underline; }
+.schedule-detail .place-actions { gap:12px; }
+.detail-day-buttons { display:flex; gap:5px; }
+.detail-day-buttons button { padding:9px 10px; border:1px solid #d3c6b4; border-radius:9px; background:#fffaf1; color:#5d6a63; font-size:9px; font-weight:900; cursor:pointer; }
+.detail-day-buttons button.done { border-color:var(--jade); background:var(--jade); color:white; }
+
+.shopping-content { padding-top:78px; }
+.shopping-intro { margin-bottom:34px; display:grid; grid-template-columns:1.15fr .85fr; gap:70px; align-items:end; }
+.shopping-intro h2 { margin:0; font-size:clamp(42px,5vw,70px); line-height:.98; letter-spacing:-.055em; }
+.shopping-intro>p { margin:0; padding:20px 22px; border-left:4px solid #87955f; background:#fff7e8; color:#68746f; font-size:12px; line-height:1.7; }
+.shopping-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.shopping-card { padding:26px; border:1px solid var(--line); border-radius:24px; background:#fff8ec; box-shadow:0 14px 34px #19312c0a; }
+.shopping-card-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.shopping-card-head>span { color:#87955f; font:700 13px Georgia,serif; letter-spacing:.15em; }
+.shopping-card-head>em { padding:6px 9px; border-radius:999px; background:#e7eadc; color:#586342; font-size:8px; font-style:normal; font-weight:900; }
+.shopping-card h3 { margin:19px 0 4px; font-size:25px; letter-spacing:-.04em; }
+.shop-zh { margin:0; color:#89938e; font-size:10px; }
+.shop-meta { margin:20px 0; display:grid; grid-template-columns:1fr 1.2fr; gap:12px; }
+.shop-meta span { color:#9b8c76; font-size:7px; font-weight:900; letter-spacing:.1em; }
+.shop-meta b { display:block; margin-top:5px; color:var(--ink); font-size:10px; line-height:1.45; letter-spacing:0; }
+.shop-items { padding:15px; border-radius:14px; background:#19312c; }
+.shop-items small { display:block; margin-bottom:10px; color:#ffc872; font-size:8px; font-weight:900; letter-spacing:.12em; }
+.shop-items>div { display:flex; flex-wrap:wrap; gap:6px; }
+.shop-items span { padding:6px 8px; border-radius:7px; background:#ffffff13; color:#f7f2e4; font-size:9px; }
+.shop-tip { min-height:32px; margin:15px 0; color:#6c7872; font-size:10px; line-height:1.55; }
+.shopping-card footer { display:flex; gap:8px; padding-top:14px; border-top:1px dashed #d5c7b3; }
+.shopping-card footer a { padding:8px 10px; border-radius:8px; background:#eee4d5; color:#53655d; font-size:9px; font-weight:900; text-decoration:none; }
+.shopping-note { margin-top:24px; padding:22px 24px; display:grid; grid-template-columns:190px 1fr; gap:25px; border-radius:18px; background:#4f5c3d; color:#fff8e9; }
+.shopping-note b { color:#f0d98a; font-size:12px; }
+.shopping-note p { margin:0; color:#e4e9db; font-size:11px; line-height:1.65; }
+
+@media (max-width:960px) {
+  .schedule-choice-layout { grid-template-columns:1fr; }
+  .schedule-place-panel { max-height:500px; }
+}
+
+@media (max-width:720px) {
+  body { padding-bottom:72px; }
+  .mobile-tabs { grid-template-columns:repeat(3,1fr); }
+  .schedule-place-panel { max-height:420px!important; }
+  .row-day-buttons { padding-left:58px; }
+  .schedule-detail .place-actions { width:100%; }
+  .detail-day-buttons { width:100%; display:grid; grid-template-columns:repeat(3,1fr); }
+  .detail-day-buttons button { padding:10px 4px; }
+  .itinerary-summary .summary-days { justify-content:flex-start; }
+  .summary-days>div { min-width:64px; }
+  .shopping-content { padding-top:56px; }
+  .shopping-intro { grid-template-columns:1fr; gap:22px; }
+  .shopping-intro h2 { font-size:43px; }
+  .shopping-grid { grid-template-columns:1fr; }
+  .shopping-card { padding:21px; }
+  .shopping-note { grid-template-columns:1fr; gap:10px; }
+}
